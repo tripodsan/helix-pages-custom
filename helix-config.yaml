@@ -1,0 +1,27 @@
+#
+# Helix Configuration
+#
+version: 1
+
+definitions:
+  defaults:
+    # default repository. set to git remote repository before deployment
+    - &defaultRepo https://github.com/adobe/helix-pages.git#master
+    - &staticRepo https://github.com/adobe/helix-pages.git/htdocs
+    - &pagesPackage helix-pages/9c676842bd10b838c97de5f7e22d814b3e3e34fe
+
+strains:
+  - name: default
+    url: http://test0.experience-adobe.com/
+    content: https://github.com/davidnuescheler/helix-test.git
+    code: *defaultRepo
+    static: *staticRepo
+    package: *pagesPackage
+
+  - name: test1.experience-adobe.com
+    url: http://test1.experience-adobe.com/
+    content: https://github.com/davidnuescheler/analytics-2-0-apis.git
+    code: *defaultRepo
+    static: *staticRepo
+    package: *pagesPackage
+
